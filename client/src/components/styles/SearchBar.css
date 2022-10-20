@@ -1,0 +1,78 @@
+.searchbar{
+    background-color: transparent;
+    float: left;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.searchbar input{
+    border-radius: 15px 0px 15px 0px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    padding-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.searchBar input:focus{
+    outline: none;
+}
+
+.Buscar{
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    width: auto;
+    font-size: 17px;
+    border: none;
+}
+
+.Buscar:hover{
+    cursor: pointer;
+    content:"";
+    color: darkcyan;
+    transition: all 0.5s ease; 
+}
+
+.Refress{
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    width: auto;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+}
+.Refress:hover{
+    cursor: pointer;
+    content:"";
+    color: darkcyan;
+    transition: all 0.5s ease; 
+}
+
+.CreateDogs{
+margin-left: 50px;
+margin-right: 50px;
+width: 100%;
+background-color: transparent;
+border: none;
+font-size: 17px;
+color: white;
+}
+
+.CreateDogs:hover{
+    cursor: pointer;
+    content:"";
+    color: darkcyan;
+    transition: all 0.5s ease; 
+}
+

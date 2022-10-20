@@ -1,0 +1,58 @@
+body{
+    background-image: url("../../image/main_dog.jpg");
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    /* width: 100%; */
+    /* background-attachment: fixed;
+    background-size: 100% 100%; */
+}
+
+#container{
+    width: 100%;
+    margin-top: 12%;
+    text-align: center;
+}
+
+#container h2{
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-shadow: 3px 3px 3px black;
+}
+
+#container button{
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px;
+    width: 8%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#container button:hover{
+    cursor: pointer;
+    color: black;
+	background-color: transparent;
+}
+#container button:hover::before{
+    right: 0%;
+	left: auto;
+	width: 100%;
+}
+
+#container button::before{
+    position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: black;
+	background: white;
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
