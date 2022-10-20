@@ -5,6 +5,10 @@ import { Home } from './components/Home';
 import { DetailDogs } from './components/DetailDogs';
 import { CreateDogs } from './components/CreateDogs';
 import { NotFound } from './components/NotFound';
+require('dotenv').config();
+const {
+  REACT_APP_API
+} = process.env;
 
 function App() {
   return (

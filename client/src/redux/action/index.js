@@ -9,11 +9,16 @@ export const GET_ORDER_BY_DOGS="GET_ORDER_BY_DOGS";
 export const GET_ORDER_BY_PESO_DOGS="GET_ORDER_BY_PESO_DOGS";
 export const GET_DETAIL_DOGS="GET_DETAIL_DOGS";
 export const POST_DOG="POST_DOG";
+require('dotenv').config();
+const {
+    REACT_APP_API
+} = process.env;
+
 
 //Listar todos los DOGS
 export const getAllDogs=()=>{
     return (dispatch)=>{
-        return axios.get("http://localhost:3001/dogs")    
+        return axios.get("/dogs")    
         .then(res=>{
             dispatch({
                 type:GET_ALL_DOGS,
@@ -31,7 +36,7 @@ export const getAllDogsByName=(name)=>{
         if(name===""){
             alert("NOT FOUND");
         }else{
-            return axios.get(`http://localhost:3001/dogs?name=${name}`)
+            return axios.get(`/dogs?name=${name}`)
         .then(res=>{
             dispatch({
                 type:GET_ALL_DOGS_BY_NAME,
@@ -57,7 +62,7 @@ export const getAllDogsByTemperament=(payload)=>{
 export const getAllTemperament=()=>{
     try{
         return async dispatch=>{
-            const json=await axios.get("http://localhost:3001/temperaments");
+            const json=await axios.get("/temperaments");
             return dispatch({
                 type:GET_ALL_TEMPERAMENTS,
                 payload:json.data
@@ -96,7 +101,7 @@ export const getOrderByPesoDogs=(payload)=>{
 export const getDetailDogs=(id)=>{
     try{
         return async(dispatch)=>{
-            var json=await axios.get(`http://localhost:3001/dogs/${id}`);
+            var json=await axios.get(`/dogs/${id}`);
             return dispatch({
                 type:GET_DETAIL_DOGS,
                 payload:json.data
@@ -110,7 +115,7 @@ export const getDetailDogs=(id)=>{
 //Crear un nuevo DOG
 export const postDog=(payload)=>{
     return async(dispatch)=>{
-        await axios.post("http://localhost:3001/dogs",payload)
+        await axios.post("/dogs",payload)
         .then(res=>{
             return dispatch({
                 type:POST_DOG,
