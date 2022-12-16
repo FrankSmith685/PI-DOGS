@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 
 
 dotenv.config();
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://pi-dogs-production-d420.up.railway.app";
 
 ReactDOM.render(
   <Provider store={store}>
