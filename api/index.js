@@ -28,7 +28,7 @@ const {
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(PORT, async() => {
+  server.listen(7667, async() => {
     await getApiTemperament();
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });

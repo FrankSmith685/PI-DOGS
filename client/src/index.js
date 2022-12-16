@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 
 
 dotenv.config();
-axios.defaults.baseURL = "https://app-pi-demo-dog.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:3001";
 
 ReactDOM.render(
   <Provider store={store}>
