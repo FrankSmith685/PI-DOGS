@@ -2,7 +2,10 @@
 
 # Individual Project - Henry Dogs
 
-<img height="200" src="./dog.png" />
+<img src="./imagen1.PNG" />
+<img src="./imagen2.PNG" />
+
+Link: https://pi-dogs-roan.vercel.app/
 
 ## Objetivos del Proyecto
 
