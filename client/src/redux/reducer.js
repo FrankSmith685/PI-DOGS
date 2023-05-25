@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_ALL_DOGS_BY_NAME, GET_ALL_DOGS_BY_TEMPERAMENT, GET_ALL_DOGS_EXISTENT_AND_CREATED, GET_ALL_TEMPERAMENTS, GET_DETAIL_DOGS, GET_ORDER_BY_DOGS, GET_ORDER_BY_PESO_DOGS, POST_DOG } from "../action";
+import { GET_ALL_DOGS, GET_ALL_DOGS_BY_NAME, GET_ALL_DOGS_BY_TEMPERAMENT, GET_ALL_DOGS_EXISTENT_AND_CREATED, GET_ALL_TEMPERAMENTS, GET_DETAIL_DOGS, GET_ORDER_BY_DOGS, GET_ORDER_BY_PESO_DOGS, POST_DOG } from "./action";
 
 const initialState={
     dogs:[],
@@ -83,6 +83,7 @@ export const rootReducer=(state=initialState,action)=>{
                        }
             }
             else if(action.payload==="existing"){
+                console.log(a);
                     return{
                         ...state,
                         dogs:a,

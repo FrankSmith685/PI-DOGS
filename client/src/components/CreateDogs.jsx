@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllDogs, getAllTemperament, postDog } from "../redux/action";
-import './styles/CreateDogs.css';
 
 export const CreateDogs=()=>{
     const dispatch=useDispatch();
@@ -261,139 +260,202 @@ export const CreateDogs=()=>{
     }
     
     return(
-        <div className="containerDogs">
-            <div className="dogsmenu">
-                <Link to="/Home"><button>Go Home</button></Link>
+        <div className="bg-gray-100 py-8 px-4">
+  <div className="max-w-md mx-auto bg-gray-800 text-white rounded-lg overflow-hidden shadow-md">
+    <div className="p-4">
+      <Link to="/home">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Go Home
+        </button>
+      </Link>
+    </div>
+    <div className="p-4">
+      <div className="mb-4">
+        <h2 className="text-xl font-bold">Create Dogs</h2>
+      </div>
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Name:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeName(ev)}
+          value={state.name}
+          name="name"
+          onBlur={(ev) => onBlurName(ev)}
+          onKeyUp={(ev) => onKeyName(ev)}
+          placeholder="Enter the dog's name"
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.name && !validate.name ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.name && !validate.name) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.name && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Min Height:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeMinHeight(ev)}
+          value={state.min_height}
+          name="min_height"
+          onBlur={(ev) => onBlurMinHeight(ev)}
+          onKeyUp={(ev) => onKeyMinHeight(ev)}
+          placeholder="Enter the dog's min height."
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.min_height && !validate.min_height ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.min_height && !validate.min_height) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.min_height && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Max Height:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeMaxHeight(ev)}
+          value={state.max_height}
+          name="max_height"
+          onBlur={(ev) => onBlurMaxHeight(ev)}
+          onKeyUp={(ev) => onKeyMaxHeight(ev)}
+          placeholder="Enter the dog's max height."
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.max_height && !validate.max_height ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.max_height && !validate.max_height) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.max_height && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Min Weight:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeMinWeight(ev)}
+          value={state.min_weight}
+          name="min_weight"
+          onBlur={(ev) => onBlurMinWeight(ev)}
+          onKeyUp={(ev) => onKeyMinWeight(ev)}
+          placeholder="Enter the dog's min weight."
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.min_weight && !validate.min_weight ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.min_weight && !validate.min_weight) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.min_weight && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Max Weight:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeMaxWeight(ev)}
+          value={state.max_weight}
+          name="max_weight"
+          onBlur={(ev) => onBlurMaxWeight(ev)}
+          onKeyUp={(ev) => onKeyMaxWeight(ev)}
+          placeholder="Enter the dog's max weight."
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.max_weight && !validate.max_weight ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.max_weight && !validate.max_weight) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.max_weight && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Life Span:</label>
+        <input
+          type="text"
+          onChange={(ev) => onChangeLifeSpan(ev)}
+          value={state.life_span}
+          name="life_span"
+          onBlur={(ev) => onBlurLifeSpan(ev)}
+          onKeyUp={(ev) => onKeyLifeSpan(ev)}
+          placeholder="Enter the dog's Life Span."
+          className={`border rounded text-black w-full py-2 px-3 ${
+            error.life_span && !validate.life_span ? 'border-red-500' : 'border-gray-300'
+          }`}
+        />
+        {(error.life_span && !validate.life_span) && (
+          <p className="text-red-500 text-sm mt-1">No dejar los espacios en blanco</p>
+        )}
+        {validate.life_span && (
+          <p className="text-red-500 text-sm mt-1">Debe contener caracteres correctamente</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-2 font-bold">Temperaments:</label>
+        <select
+          onChange={(ev) => onChangeSelectTemperament(ev)}
+          value={temperamento.name}
+          name="temperamento"
+          className={`border rounded text-black w-full py-2 px-3 text-black ${
+            error.temperaments ? 'border-red-500' : 'border-gray-300'
+          }`}
+        >
+          <option value="All">Select Dogs:</option>
+          {temperaments?.map((t) => {
+            return (
+              <option key={t.id} value={t.name}>
+                {t.name}
+              </option>
+            );
+          })}
+        </select>
+        {error.temperaments && (
+          <p className="text-red-500 text-sm mt-1">Debe seleccionar algún temperamento</p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        {state.temperaments?.map((t) => {
+          return (
+            <div key={t}>
+              <p>{t}</p>
+              <button
+                onClick={() => onClickDeleteTemperament(t)}
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+              >
+                X
+              </button>
             </div>
-            <div className="SubContainerDogs">
-                <div className="creatingDogs">
-                <h2>Create Dogs</h2>
-                
-                    <div className="nameDogs">
-                        <label>Name: </label>
-                        <input type="text" onChange={(ev)=>onChangeName(ev)} value={state.name} name="name" onBlur={(ev)=>onBlurName(ev)} onKeyUp={(ev)=>onKeyName(ev)} placeholder="Enter the dog's name" />
-                        {
-                            (error.name && !validate.name )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.name && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
+          );
+        })}
+      </div>
 
-                    <div className="minHeightDogs">
-                        <label>Min Height: </label>
-                        <input type="text" onChange={(ev)=>onChangeMinHeight(ev)} value={state.min_height} name="min_height" onBlur={(ev)=>onBlurMinHeight(ev)} onKeyUp={(ev)=>onKeyMinHeight(ev)} placeholder="Enter the dog's min height." />
-                        {
-                            (error.min_height && !validate.min_height )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.min_height && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
-                    <div className="maxHeightDogs">
-                        <label>Max Height: </label>
-                        <input type="text" onChange={(ev)=>onChangeMaxHeight(ev)} value={state.max_height} name="max_height" onBlur={(ev)=>onBlurMaxHeight(ev)} onKeyUp={(ev)=>onKeyMaxHeight(ev)} placeholder="Enter the dog's max height." />
-                        {
-                            (error.max_height && !validate.max_height )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.max_height && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
+      <div>
+        <button
+          onClick={() => onClickSubmit()}
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-                    <div className="minWeightDogs">
-                        <label>Min Weight: </label>
-                        <input type="text" onChange={(ev)=>onChangeMinWeight(ev)} value={state.min_weight} name="min_weight" onBlur={(ev)=>onBlurMinWeight(ev)} onKeyUp={(ev)=>onKeyMinWeight(ev)} placeholder="Enter the dog's min weight."/>
-                        {
-                            (error.min_weight && !validate.min_weight )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.min_weight && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
-                    <div className="maxHeightDogs">
-                        <label>Max Weight: </label>
-                        <input type="text" onChange={(ev)=>onChangeMaxWeight(ev)} value={state.max_weight} name="max_weight" onBlur={(ev)=>onBlurMaxWeight(ev)} onKeyUp={(ev)=>onKeyMaxWeight(ev)} placeholder="Enter the dog's max weight." />
-                        {
-                            (error.max_weight && !validate.max_weight )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.max_weight && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
-                    
-
-                    <div className="LifeSpanDogs">
-                        <label>Life Span: </label>
-                        <input type="text" onChange={(ev)=>onChangeLifeSpan(ev)} value={state.life_span} name="life_span" onBlur={(ev)=>onBlurLifeSpan(ev)} onKeyUp={(ev)=>onKeyLifeSpan(ev)} placeholder="Enter the dog's Life Span."/>
-                        {
-                            (error.life_span && !validate.life_span )&& (
-                                <p>No dejar los espacios en blanco</p>
-                            )
-                        }
-                        {
-                            validate.life_span && (
-                                <p>Debe contener caracteres correctamente</p>
-                            )
-                        }
-                    </div>
-                    <div className="TemperamentsDogs">
-                        <label>Temperaments: </label>
-                        <select onChange={(ev)=>onChangeSelectTemperament(ev)} value={temperamento.name} name="temperamento">
-                            <option value="All">Select Dogs: </option>
-                            {
-                                temperaments?.map(t=>{
-                                    return(
-                                        <option key={t.id} value={t.name}>{t.name}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                        {
-                            error.temperaments && (
-                                <p>Debe seleccionar algun temperamento</p>
-                            )
-                        }
-                        
-                    </div>
-                    <div className="temp">
-                            {
-                                state.temperaments?.map(t=>{
-                                    return(
-                                        <div key={t}>
-                                            <p>{t}</p>
-                                            <button onClick={()=>onClickDeleteTemperament(t)}>X</button>
-                                        </div>
-                                    )
-                                })
-                            }
-                    </div>
-                    <div>
-                        <button onClick={()=>onClickSubmit()}>submit</button>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
     )
 }

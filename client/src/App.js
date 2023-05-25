@@ -1,25 +1,48 @@
-import './App.css';
-import { Route,Switch} from 'react-router-dom';
-import { LadingPage } from './components/LadingPage';
-import { Home } from './components/Home';
-import { DetailDogs } from './components/DetailDogs';
-import { CreateDogs } from './components/CreateDogs';
-import { NotFound } from './components/NotFound';
-require('dotenv').config();
-const {
-  REACT_APP_API
-} = process.env;
+import { Routes, Route } from 'react-router-dom';
+import LadingPage from './components/LadingPage';
 
-function App() {
+import NotFound from './components/NotFound';
+import { lazy, Suspense } from 'react';
+import NavBar from './components/NavBar';
+import { CreateDogs } from './components/CreateDogs';
+import About from './components/About';
+import DetailDogs from './components/DetailDogs';
+// import { CreateDogs } from './components/CreateDogs';
+const HomePage = lazy(()=>import ('./components/Home'));
+// const About = lazy(()=>import ('./components/About'));
+// const CreateDogs = lazy(()=>import('.components/CreateDogs'))
+
+
+
+export default function App() {
   return (
-    <Switch>
-        <Route exact path="/" component={LadingPage}/>
-        <Route exact path="/home" component={Home}/>
-        <Route exact path="/home/:id" component={DetailDogs} />
-        <Route exact path="/CreateDogs" component={CreateDogs} />
-        <Route path="*" component={NotFound} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<LadingPage />} />
+      <Route path="/home" element={
+        <Suspense fallback={<div>Cargando...</div>}>
+          <NavBar/>
+          <HomePage />
+        </Suspense>
+      } />
+      {/* <Route path="/CreateDogs" element={
+        <Suspense fallback={<div>Cargando...</div>}>
+          <NavBar/> */}
+          {/* <CreateDogs /> */}
+        {/* </Suspense>
+        
+      } /> */}
+      <Route path="/home/:id" element={<DetailDogs />} />
+      <Route path="/CreateDogs" element={<CreateDogs />} />
+      <Route path="/About" element={<About />} />
+
+      {/* <Route path="/About" element={
+        <Suspense fallback={<div>Cargando...</div>}>
+          <NavBar/>
+          <About />
+        </Suspense>
+        } /> */}
+      
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
-
-export default App;
