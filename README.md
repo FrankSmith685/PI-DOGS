@@ -2,8 +2,8 @@
 
 # Individual Project - Henry Dogs
 
-<img src="./imagen1.PNG" />
-<img src="./imagen2.PNG" />
+<img src="./imagens1.PNG" />
+<img src="./imagens2.PNG" />
 
 Link: https://pi-dogs-roan.vercel.app/
 
