@@ -24,23 +24,9 @@ export default function App() {
           <HomePage />
         </Suspense>
       } />
-      {/* <Route path="/CreateDogs" element={
-        <Suspense fallback={<div>Cargando...</div>}>
-          <NavBar/> */}
-          {/* <CreateDogs /> */}
-        {/* </Suspense>
-        
-      } /> */}
       <Route path="/home/:id" element={<DetailDogs />} />
       <Route path="/CreateDogs" element={<CreateDogs />} />
       <Route path="/About" element={<About />} />
-
-      {/* <Route path="/About" element={
-        <Suspense fallback={<div>Cargando...</div>}>
-          <NavBar/>
-          <About />
-        </Suspense>
-        } /> */}
       
       <Route path="*" element={<NotFound />} />
     </Routes>

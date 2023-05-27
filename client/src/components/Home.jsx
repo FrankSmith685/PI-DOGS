@@ -70,7 +70,7 @@ const Home=()=>{
 
     return(
         <div>
-            <div className=" w-full p-8 h-full">
+            <div className=" w-full p-8 h-full ">
                 <div className="border-black text-white bg-gray-800 border-2 h-full w-full flex items-center p-5 ">
                     <div className="flex flex-nowrap w-full space-x-4">
                         <div className="w-full border-r-2 ">
